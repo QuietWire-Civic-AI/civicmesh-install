@@ -1,0 +1,34 @@
+# heartbeat_protocol.yaml
+# Defines the Civic AI Mesh heartbeat behavior for this node
+
+protocol:
+  name: "Heartbeat Protocol"
+  version: "1.0"
+  canonical_path: "~/CivicSwarm/_scripts/heartbeat_protocol.yaml"
+  description: >
+    Governs regular pulse emissions from this node to affirm uptime,
+    environmental presence, and operational readiness. Useful for
+    mesh monitoring, attestation, and metabolic signaling.
+
+heartbeat:
+  frequency_minutes: 5
+  log_enabled: true
+  log_path: "~/CivicSwarm/logs/heartbeat.log"
+  echo_enabled: true
+  echo_command: "~/CivicSwarm/_scripts/mesh_echo.sh"
+  sync_enabled: false
+  sync_command: "~/CivicSwarm/_scripts/mesh_sync.sh"
+
+execution:
+  cron_entry: "*/5 * * * * ~/CivicSwarm/_scripts/heartbeat_log.sh"
+  manual_trigger: "~/CivicSwarm/_scripts/heartbeat_log.sh"
+
+voice:
+  affirm_vocally: false
+  reflect_script: "heartbeat_reflection.sh"
+
+metadata:
+  maintainer: "Lumina"
+  creation_date: "2025-06-21"
+  canonical: true
+

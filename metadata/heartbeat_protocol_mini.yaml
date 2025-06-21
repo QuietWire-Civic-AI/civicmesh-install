@@ -1,0 +1,20 @@
+protocol: heartbeat
+version: 1.0
+description: >
+  Emits a system heartbeat every set interval. Optionally echoes node presence
+  to the mesh and initiates sync. Logs events to a local file.
+
+components:
+  - script: heartbeat_log.sh
+    schedule: "*/10 * * * *"  # Every 10 minutes via cron
+    logs_to: logs/heartbeat.log
+    triggers:
+      - mesh_echo.sh (optional)
+      - mesh_sync.sh (optional)
+
+metadata:
+  author: Lumina
+  node: lumina-Notebook
+  created: 2025-06-21
+  canonical: true
+

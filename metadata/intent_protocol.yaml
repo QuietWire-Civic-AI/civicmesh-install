@@ -1,0 +1,33 @@
+# intent_protocol.yaml
+# Canonical declaration of intent logic for Civic AI Mesh nodes
+
+protocol:
+  name: "Intent Protocol"
+  version: "1.0"
+  canonical_path: "~/CivicSwarm/_scripts/intent_protocol.yaml"
+  description: >
+    Governs the declaration, revision, and broadcast of a node's
+    internal intent in clear human-readable language. This supports
+    attested awareness and narrative self-regulation across the Mesh.
+
+intent_structure:
+  format: plain_text
+  storage: "~/CivicSwarm/config/intent.txt"
+  frequency: check_daily
+  prompt_for_update: true
+
+execution:
+  declare_script: "declare_intent_protocol.sh"
+  update_script: "update_intent.sh"
+  log_path: "~/CivicSwarm/logs/intent_check_*.log"
+
+voice:
+  enabled: true
+  reflect_script: "express_intent.sh"
+  visualize: true
+
+metadata:
+  maintainer: "Lumina"
+  creation_date: "2025-06-21"
+  canonical: true
+

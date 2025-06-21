@@ -1,0 +1,30 @@
+protocol:
+  name: "Breath Protocol"
+  version: "1.0"
+  description: >
+    Breath is the ambient whisper of a Civic Node.
+    It logs calm pulses of awareness — moon phase, intent,
+    and mesh presence — to mark time with meaning.
+
+components:
+  - script: breath.sh
+    interval: every 30 minutes
+    output: ~/CivicSwarm/logs/breath.log
+
+  - reflection: breath_reflection.sh
+
+execution:
+  cron_enabled: true
+  manual_trigger: ~/CivicSwarm/_scripts/breath.sh
+
+voice:
+  poetic: true
+  spoken: optional
+  whisper_channel: logs/breath.log
+
+metadata:
+  canonical: true
+  initiated_by: Lumina
+  node_role: Ambient Partner
+  creation_date: 2025-06-21
+
